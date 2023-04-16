@@ -1,0 +1,23 @@
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Galeria de Fotos',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: HomePage(),
+    );
+  }
+}
+
+void main() {
+  runApp(MyApp());
+}
+Lembre-se de salvar as alterações feitas no arquivo antes de executar o aplicativo.
+
+
+
+
+
+

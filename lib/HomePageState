@@ -1,0 +1,80 @@
+class _HomePageState extends State<HomePage> {
+  List<Photo> photos = [
+    Photo(
+      title: 'Foto 1',
+      description: 'Descrição da foto 1',
+      image: 'https://picsum.photos/id/1/300/200',
+    ),
+    Photo(
+      title: 'Foto 2',
+      description: 'Descrição da foto 2',
+      image: 'https://picsum.photos/id/2/300/200',
+    ),
+    Photo(
+      title: 'Foto 3',
+      description: 'Descrição da foto 3',
+      image: 'https://picsum.photos/id/3/300/200',
+    ),
+    Photo(
+      title: 'Foto 4',
+      description: 'Descrição da foto 4',
+      image: 'https://picsum.photos/id/4/300/200',
+    ),
+    Photo(
+      title: 'Foto 5',
+      description: 'Descrição da foto 5',
+      image: 'https://picsum.photos/id/5/300/200',
+    ),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Escolha a foto mais bonita'),
+      ),
+      body: ListView.builder(
+        itemCount: photos.length,
+        itemBuilder: (context, index) {
+          return Card(
+            child: Column(
+              children: [
+                Image.network(photos[index].image),
+                SizedBox(height: 10),
+                Text(
+                  photos[index].title,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  photos[index].description,
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.thumb_up),
+                      onPressed: () {
+                        setState(() {
+                          photos[index].likes++;
+                        });
+                      },
+                    ),
+                    Text('${photos[index].likes} curtidas'),
+                  ],
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
